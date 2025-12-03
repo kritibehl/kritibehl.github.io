@@ -4,11 +4,11 @@ remote_theme: "mmistakes/minimal-mistakes"
 
 minimal_mistakes_skin: "dark"
 
-logo: /assets/images/profile.jpg
+logo: /assets/images/profile.png
 
 author:
   name: "Kriti Behl"
-  avatar: "/assets/images/profile.jpg"
+  avatar: "/assets/images/profile.png"
   bio: >
     I build systems that repair user intent instead of refusing, censoring, or moralizing.
     My work focuses on evaluation, alignment, and practical human–AI interaction.
