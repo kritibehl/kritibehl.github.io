@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kriti Behl | Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Projects by Kriti Behl – AI safety, multimodal reasoning, evaluation systems, and infrastructure." />
+  <style>
+    :root {
+      --bg: #05060a;
+      --bg-alt: #0d1018;
+      --card-bg: #10141f;
+      --border-subtle: #1d2333;
+      --accent: #4f8cff;
+      --accent-soft: rgba(79, 140, 255, 0.12);
+      --text-main: #f3f4f8;
+      --text-muted: #9ba3ba;
+      --text-soft: #6d7487;
+      --chip-bg: #151927;
+      --danger: #ff5c7a;
+      --success: #5ed39a;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.4);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-pill: 999px;
+      --transition-fast: 160ms ease-out;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #15192a 0, #05060a 45%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 72px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .brand-tag {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding: 6px 0;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #7f5dff);
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 30px;
+      padding: 28px 24px 26px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(79, 140, 255, 0.16), rgba(15, 19, 36, 0.95));
+      border: 1px solid rgba(79, 140, 255, 0.35);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 36px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: 2.15rem;
+      font-weight: 640;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 6, 10, 0.6);
+      border: 1px solid rgba(104, 126, 176, 0.35);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .chip-dot.green {
+      background: var(--success);
+    }
+
+    .chip-dot.red {
+      background: var(--danger);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #7f5dff);
+      color: #ffffff;
+      box-shadow: 0 14px 30px rgba(79, 140, 255, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(79, 140, 255, 0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(141, 158, 204, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn-outline:hover {
+      background: rgba(12, 16, 30, 0.9);
+      border-color: var(--accent);
+      color: var(--text-main);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px 16px 14px;
+      background: rgba(5, 6, 10, 0.78);
+      border-radius: 18px;
+      border: 1px solid rgba(97, 116, 170, 0.5);
+    }
+
+    .hero-metric-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .metric-value {
+      font-size: 0.95rem;
+      font-weight: 550;
+      color: var(--text-main);
+    }
+
+    .metric-pill {
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 0.76rem;
+      border: 1px solid rgba(97, 116, 170, 0.6);
+      background: rgba(12, 16, 30, 0.9);
+      color: var(--text-muted);
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 580;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .section-subtitle {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.14), var(--card-bg) 38%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card:hover {
+      border-color: rgba(79, 140, 255, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.52);
+      background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.22), var(--card-bg) 42%);
+    }
+
+    .card-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 550;
+    }
+
+    .card-role {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .card-problem {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .card-list {
+      margin-top: 4px;
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .card-list li {
+      margin-bottom: 3px;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--text-soft);
+    }
+
+    .stack-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .stack-chip {
+      font-size: 0.76rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--chip-bg);
+      color: var(--text-soft);
+      border: 1px solid rgba(84, 100, 150, 0.7);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .card-link {
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(112, 132, 182, 0.85);
+      color: var(--text-muted);
+      background: rgba(5, 6, 10, 0.4);
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .card-link:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      background: rgba(12, 16, 30, 0.95);
+    }
+
+    .card-metric {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      text-align: right;
+    }
+
+    .divider {
+      margin: 40px 0 8px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(42, 50, 78, 0.1), rgba(121, 139, 191, 0.7), rgba(42, 50, 78, 0.05));
+    }
+
+    footer {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(37, 44, 70, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(146, 165, 214, 0.6);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding: 20px 16px 18px;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-two {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .page {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-name">KRITI BEHL</div>
+        <div class="brand-tag">AI Safety, Multimodal Reasoning, Evaluation Systems</div>
+      </div>
+      <nav>
+        <a href="/" >Home</a>
+        <a href="/projects/" class="active">Projects</a>
+        <a href="/research/">Research</a>
+        <a href="/about/">About</a>
+        <a href="/Kriti_Behl_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">Projects</div>
+        <h1 class="hero-title">Systems for responsible, multimodal AI.</h1>
+        <p class="hero-subtitle">
+          I design and build evaluation frameworks, jailbreak defenses, and multimodal reasoning systems.
+          Every project below is implemented end to end: data, models, infrastructure, dashboards, and experiments.
+        </p>
+        <div class="hero-tags">
+          <span class="chip"><span class="chip-dot green"></span> AI safety and evaluation</span>
+          <span class="chip"><span class="chip-dot green"></span> Multimodal reasoning</span>
+          <span class="chip"><span class="chip-dot green"></span> DevOps and MLOps</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/kritibehl" target="_blank" rel="noopener">View code on GitHub</a>
+          <a class="btn btn-outline" href="/Kriti_Behl_Resume.pdf" target="_blank" rel="noopener">Open resume</a>
+        </div>
+      </div>
+      <aside class="hero-right" aria-label="Summary metrics">
+        <div class="hero-metric-row">
+          <div>
+            <div class="metric-label">Models evaluated</div>
+            <div class="metric-value">GPT-4o, Claude, R1, others</div>
+          </div>
+          <div class="metric-pill">Human-aligned scoring</div>
+        </div>
+        <div class="hero-metric-row">
+          <div>
+            <div class="metric-label">Focus</div>
+            <div class="metric-value">Safety, robustness, interpretability</div>
+          </div>
+          <div class="metric-pill">Research-grade experiments</div>
+        </div>
+        <div class="hero-metric-row">
+          <div>
+            <div class="metric-label">Delivered</div>
+            <div class="metric-value">APIs, dashboards, infra, datasets</div>
+          </div>
+          <div class="metric-pill">Production-aware design</div>
+        </div>
+      </aside>
+    </section>
+
+    <main class="sections">
+
+      <!-- Flagship AI Safety and Evaluation -->
+      <section id="flagship">
+        <div class="section-header">
+          <h2 class="section-title">Flagship AI Safety and Evaluation</h2>
+          <p class="section-subtitle">
+            Core systems that evaluate, constrain, and improve large language models in realistic settings.
+            These projects combine benchmarks, pipelines, and visual observability.
+          </p>
+        </div>
+        <div class="grid">
+          <!-- FairEval-Suite -->
+          <article class="card">
+            <div class="card-label">Evaluation Framework</div>
+            <h3 class="card-title">FairEval-Suite</h3>
+            <div class="card-role">Human-aligned evaluation for generative models</div>
+            <p class="card-problem">
+              Most LLM evaluation relies on opaque aggregate scores. FairEval-Suite scores models on helpfulness, relevance,
+              clarity, and toxicity, with real-time dashboards and reproducible scripts.
+            </p>
+            <ul class="card-list">
+              <li>Reduces hallucination error by approximately 17–26 percent over prompt-only baselines.</li>
+              <li>Improves clarity scores by 18.9 percent on a controlled benchmark across multiple models.</li>
+              <li>Unifies scoring across GPT-4o, Claude, R1, and other models with a consistent rubric and pipeline.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">MongoDB</span>
+              <span class="stack-chip">Chart.js</span>
+              <span class="stack-chip">pytest</span>
+              <span class="stack-chip">Prometheus</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/kritibehl/FairEval-Suite" target="_blank" rel="noopener">GitHub</a>
+                <a class="card-link" href="#" target="_blank" rel="noopener">Demo</a>
+                <a class="card-link" href="#" target="_blank" rel="noopener">Write-up</a>
+              </div>
+              <div class="card-metric">Evaluation dashboards and benchmark scripts.</div>
+            </div>
+          </article>
+
+          <!-- JailBreakDefense -->
+          <article class="card">
+            <div class="card-label">Safety Pipeline</div>
+            <h3 class="card-title">JailBreakDefense</h3>
+            <div class="card-role">Jailbreak detection and intent-preserving repair</div>
+            <p class="card-problem">
+              Simple refusal policies often block legitimate users. This pipeline detects jailbreak prompts, extracts intent,
+              repairs them into safe form, and returns aligned responses instead of generic refusals.
+            </p>
+            <ul class="card-list">
+              <li>Decreases false refusals by around 40 percent compared to naive safety filters.</li>
+              <li>Reduces malicious compliance by more than 90 percent on curated adversarial prompts.</li>
+              <li>Preserves underlying user intent with a dedicated repair and re-evaluation stage.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">Transformers</span>
+              <span class="stack-chip">Custom RepairEngine</span>
+              <span class="stack-chip">Safety RAG</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+                <a class="card-link" href="#" target="_blank" rel="noopener">Evaluation</a>
+              </div>
+              <div class="card-metric">Pipeline: detect → classify → repair → safe output.</div>
+            </div>
+          </article>
+
+          <!-- SpeechIntentEval -->
+          <article class="card">
+            <div class="card-label">Benchmark and Dataset</div>
+            <h3 class="card-title">SpeechIntentEval</h3>
+            <div class="card-role">Misinterpretation and ambiguity evaluation for speech-driven systems</div>
+            <p class="card-problem">
+              Speech interfaces often fail on indirect, emotionally loaded, or ambiguous phrasing.
+              SpeechIntentEval captures these failure modes and scores models on intent understanding.
+            </p>
+            <ul class="card-list">
+              <li>Curates examples of indirect requests, hedged language, and emotionally coded speech.</li>
+              <li>Evaluates intent detection and response appropriateness across several model baselines.</li>
+              <li>Designed to plug directly into evaluation and regression-testing pipelines.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">Dataset design</span>
+              <span class="stack-chip">Evaluation scripts</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+                <a class="card-link" href="#" target="_blank" rel="noopener">Dataset</a>
+              </div>
+              <div class="card-metric">Focus: intent accuracy, not just toxicity.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- Multimodal Reasoning -->
+      <section id="multimodal">
+        <div class="section-header">
+          <h2 class="section-title">Multimodal Reasoning</h2>
+          <p class="section-subtitle">
+            Systems that reason jointly over speech, image, and context to reduce hallucination and improve grounded answers.
+          </p>
+        </div>
+        <div class="grid-two grid">
+          <!-- VoiceVisionReasoner -->
+          <article class="card">
+            <div class="card-label">Multimodal System</div>
+            <h3 class="card-title">VoiceVisionReasoner</h3>
+            <div class="card-role">Joint reasoning over speech, image, and user context</div>
+            <p class="card-problem">
+              Many models treat voice commands and visual context independently. VoiceVisionReasoner fuses them to handle
+              indirect queries and ambiguous references more reliably.
+            </p>
+            <ul class="card-list">
+              <li>Reduces misinterpretation of indirect speech by about 35 percent on a targeted test set.</li>
+              <li>Improves grounded-response F1 score by roughly 22 percent versus single-modality baselines.</li>
+              <li>Supports uncertainty-aware outputs and basic reasoning traces.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">PyTorch</span>
+              <span class="stack-chip">HuggingFace</span>
+              <span class="stack-chip">OpenAI API</span>
+              <span class="stack-chip">TorchVision</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+                <a class="card-link" href="#" target="_blank" rel="noopener">Model card</a>
+              </div>
+              <div class="card-metric">Late fusion architecture with evaluation scripts.</div>
+            </div>
+          </article>
+
+          <!-- Additional multimodal or future work -->
+          <article class="card">
+            <div class="card-label">Research Direction</div>
+            <h3 class="card-title">Future Multimodal Experiments</h3>
+            <div class="card-role">Extending safety and evaluation to richer inputs</div>
+            <p class="card-problem">
+              The next step is combining multimodal perception with explicit safety and uncertainty modeling,
+              and validating models on real-world, noisy user interactions.
+            </p>
+            <ul class="card-list">
+              <li>Planned benchmarks for conversational agents that use both camera and microphone context.</li>
+              <li>Exploratory work on error taxonomies for multimodal misalignment and failure modes.</li>
+              <li>Integration with existing evaluation pipelines for regression testing and continuous monitoring.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">Experiment design</span>
+              <span class="stack-chip">Benchmarking</span>
+              <span class="stack-chip">Safety integration</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <span class="card-link">In progress</span>
+              </div>
+              <div class="card-metric">Concept to be folded into existing stacks.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- Systems and Infrastructure -->
+      <section id="infra">
+        <div class="section-header">
+          <h2 class="section-title">Systems and Infrastructure</h2>
+          <p class="section-subtitle">
+            DevOps and MLOps projects that support observability, reliability, and effective deployment of complex systems.
+          </p>
+        </div>
+        <div class="grid-two grid">
+          <!-- AutoOps-Insight -->
+          <article class="card">
+            <div class="card-label">DevOps Analytics</div>
+            <h3 class="card-title">AutoOps-Insight</h3>
+            <div class="card-role">CI/CD health and failure analyzer</div>
+            <p class="card-problem">
+              Large projects often lack clear visibility into CI/CD instability. AutoOps-Insight aggregates logs and metrics
+              to highlight flaky tests, slow stages, and recurring failure patterns.
+            </p>
+            <ul class="card-list">
+              <li>Ingests logs and metrics from Jenkins and GitHub Actions.</li>
+              <li>Surfaces recurring failures, high-latency stages, and regression-prone components.</li>
+              <li>Designed to integrate with dashboards used by engineering teams.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">MongoDB</span>
+              <span class="stack-chip">Prometheus</span>
+              <span class="stack-chip">Grafana</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+              </div>
+              <div class="card-metric">Built for real pipeline debugging workflows.</div>
+            </div>
+          </article>
+
+          <!-- KubePulse -->
+          <article class="card">
+            <div class="card-label">Chaos and Observability</div>
+            <h3 class="card-title">KubePulse</h3>
+            <div class="card-role">Kubernetes chaos engineering and monitoring</div>
+            <p class="card-problem">
+              KubePulse injects controlled failures into Kubernetes clusters and tracks system response, providing an explicit
+              feedback loop for resilience and performance tuning.
+            </p>
+            <ul class="card-list">
+              <li>Injects stressors such as pod disruptions and resource pressure.</li>
+              <li>Uses Prometheus and Grafana to visualize system response and recovery times.</li>
+              <li>Supports scenario-based experiments for services and microservices.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">Docker</span>
+              <span class="stack-chip">Kubernetes</span>
+              <span class="stack-chip">Prometheus</span>
+              <span class="stack-chip">Grafana</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+              </div>
+              <div class="card-metric">Focus: resilience and measurable degradation.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- Tools and Applications -->
+      <section id="tools">
+        <div class="section-header">
+          <h2 class="section-title">Developer Tools and Applications</h2>
+          <p class="section-subtitle">
+            Smaller tools and products that make developers and users more effective, built on top of modern LLMs and web stacks.
+          </p>
+        </div>
+        <div class="grid-two grid">
+          <!-- Chrome Copilot -->
+          <article class="card">
+            <div class="card-label">Developer Tool</div>
+            <h3 class="card-title">Chrome Copilot</h3>
+            <div class="card-role">Log and code debugging assistant in the browser</div>
+            <p class="card-problem">
+              Chrome Copilot augments developer workflows by interpreting logs, stack traces, and snippets directly in the browser,
+              using LLMs to propose explanations and next steps.
+            </p>
+            <ul class="card-list">
+              <li>Reads console output, errors, and selected text from web tools.</li>
+              <li>Generates hypotheses, summaries, and possible fixes for failures.</li>
+              <li>Designed as a lightweight companion rather than a full IDE.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">JavaScript</span>
+              <span class="stack-chip">Chrome extension APIs</span>
+              <span class="stack-chip">OpenAI API</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+              </div>
+              <div class="card-metric">Focus: fast feedback loops for engineers.</div>
+            </div>
+          </article>
+
+          <!-- ResuMate -->
+          <article class="card">
+            <div class="card-label">Application</div>
+            <h3 class="card-title">ResuMate</h3>
+            <div class="card-role">Resume and job posting analysis assistant</div>
+            <p class="card-problem">
+              ResuMate parses job descriptions and resumes to highlight gaps, relevant experience, and suggested edits,
+              helping candidates align more quickly with specific roles.
+            </p>
+            <ul class="card-list">
+              <li>Extracts key requirements from job postings and maps them to user experience.</li>
+              <li>Provides structured feedback on skills coverage and examples.</li>
+              <li>Built as a service with a clear API boundary and front-end integration options.</li>
+            </ul>
+            <div class="stack-chips">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">LLM APIs</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-links">
+                <a class="card-link" href="#" target="_blank" rel="noopener">GitHub</a>
+              </div>
+              <div class="card-metric">Demonstrates applied product thinking.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>
+        Built and maintained by Kriti Behl. All projects shown here are original work and fully implemented.
+      </div>
+      <div>
+        Contact: <a href="mailto:youremail@example.com">youremail@example.com</a> ·
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
