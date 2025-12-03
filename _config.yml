@@ -1,0 +1,32 @@
+title: "Kriti Behl"
+description: "Evaluation & Alignment — Practical Safety — Human–AI Interaction"
+remote_theme: "mmistakes/minimal-mistakes"
+
+minimal_mistakes_skin: "dark"
+
+logo: /assets/images/profile.jpg
+
+author:
+  name: "Kriti Behl"
+  avatar: "/assets/images/profile.jpg"
+  bio: >
+    I build systems that repair user intent instead of refusing, censoring, or moralizing.
+    My work focuses on evaluation, alignment, and practical human–AI interaction.
+  links:
+    - label: "GitHub"
+      url: "https://github.com/kritibehl"
+    - label: "HuggingFace"
+      url: "https://huggingface.co/spaces/kriti0608/FairEval-Suite"
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=hUGBL5wAAAAJ"
+    - label: "Medium"
+      url: "https://medium.com/@kriti0608"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-include-cache
+
+# Page structure
+markdown: kramdown
+permalink: /:title/
