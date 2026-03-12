@@ -1,95 +1,65 @@
 # Kriti Behl
 
-AI Safety and Multimodal Evaluation Engineer  
-Computer & Information Science & Engineering, University of Florida
-
-I design and build end-to-end AI systems focused on safety, multimodal reasoning, and human-aligned evaluation.  
-My work spans benchmark design, inference pipelines, DevOps infrastructure, dashboards, and applied research.
+**Backend · Systems · Reliability Engineering**  
+MS CS, University of Florida (Dec 2025) · GPA 3.8 · Open to full-time roles
 
 ---
 
-## Flagship Projects
+## Systems Index
 
-### FairEval-Suite
-Human-aligned evaluation framework for generative models.  
-Benchmarks on helpfulness, relevance, clarity, and toxicity, providing real-time scoring dashboards and model comparison.
-
-Key results:
-- Reduced hallucination error 17–26 percent vs prompt-based baselines
-- Increased clarity scores by 18.9 percent on a controlled benchmark
-- Unified scoring across frontier LLMs (GPT-4o, Claude, DeepSeek)
-
-Stack: Python, FastAPI, MongoDB, Chart.js, pytest  
-Links: [GitHub](#) | [Demo](#) | [Paper](#)
-
----
-
-### VoiceVisionReasoner
-Multimodal reasoning engine combining speech, image, and human context.
-
-Key results:
-- Reduced indirect-speech misinterpretation by 35 percent
-- Improved grounded-response F1 score by 22 percent
-- Provides uncertainty-aware inference and reasoning trace
-
-Stack: PyTorch, HuggingFace, OpenAI API, TorchVision  
-Links: [GitHub](#) | [Demo](#)
+| System | Domain | What it proves |
+|---|---|---|
+| [Faultline](https://github.com/kritibehl/faultline) | Distributed systems · Execution correctness | 1,500 deterministic race runs · 0 duplicate commits · exactly-once semantics under fault injection |
+| [AutoOps-Insight](https://github.com/kritibehl/autoops-insight) | Reliability analytics · Release safety | Config-driven YAML rules · incident replay · admin audit log · 11 failure families · 16 tests |
+| [KubePulse](https://github.com/kritibehl/KubePulse) | Resilience validation | Controlled disruption + automated scorecards · 8s recovery · resilience score 86/100 |
+| [ResuMate](https://github.com/kritibehl/ResuMate) | Workflow engine · Full-stack | Async job lifecycle (queued→running→retrying→failed→completed) · 8 workflow capabilities · 12 API endpoints · React/Next.js dashboard · 12 tests · GitHub Actions CI |
+| [FairEval Suite](https://github.com/kritibehl/FairEval-Suite) | ML evaluation infrastructure | DistilBERT inference · RAG + classification scorers · /evaluate /compare /gate FastAPI · runs/→reports/→compare/→gate/ artifacts · 11 tests |
+| [DetTrace](https://github.com/kritibehl/dettrace) | Deterministic debugging | C++17 + Swift replay · first divergence at event index 5 · 4 artifacts/run |
+| [Chrome Copilot](https://github.com/kritibehl/chrome-copilot) | Developer tooling · Debugging | Signature clustering · local fallback · 8 steps → 3 · 1,000 benchmarked runs |
+| [AccelSim-Lite](https://github.com/kritibehl/accelsim-lite) | Systems modeling · Performance | 7-stage pipeline simulator · 5 stall categories · bottleneck analysis |
+| [JailBreakDefense](https://github.com/kritibehl/JailBreakDefense) | AI safety middleware | Intent-repair routing · benchmarks · traceable logs |
+| [SpeechIntentEval](https://github.com/kritibehl/SpeechIntentEval) | Regression dataset · Robustness | High-context intent regression suite · indirect / polite / sarcastic / ambiguous phrasing |
 
 ---
 
-### JailBreakDefense
-LLM jailbreak detection and repair pipeline focused on preserving legitimate user intent.
+## Open Source Contributions
 
-Key results:
-- Decreased false refusals by approximately 40 percent
-- Reduced malicious compliance by more than 90 percent
-- Increased preserved-intent quality by 31 percent
+**Temporal Go SDK**
+- [PR #2212](https://github.com/temporalio/sdk-go/pull/2212) — Fixed goroutine leak caused by child workflows blocking on unclosed `doneChannel`; enforced idempotent closure with `sync.Once` · **Merged**
+- [PR #2200](https://github.com/temporalio/sdk-go/pull/2200) — Fixed `OnWorkflow` mock to observe propagated context headers; applied `workflowContextWithHeaderPropagated` to `ctxCopy`; added `Test_OnWorkflowMockSeesHeaderContext` regression test; closes #2005 · **Merged**
 
-Stack: Python, Transformers, custom RepairEngine, Safety RAG  
-Links: [GitHub](#) | [Demo](#)
-
----
-
-## Engineering and Infrastructure Projects
-
-### AutoOps-Insight
-CI/CD health and failure analytics platform supporting Jenkins and GitHub Actions.  
-Log-driven insights, system metrics, and root-cause diagnostics via Prometheus and MongoDB.
-
-### KubePulse
-Kubernetes chaos engineering and monitoring platform.  
-Injects controlled system stress and tracks real-time degradation using Prometheus and Grafana.
-
-### Chrome Copilot
-Browser extension for debugging logs and code using LLM inference.  
-Focused on developer acceleration, error interpretation, and interactive analysis.
+**Azure Go SDK (azcore)**
+- [PR #26051](https://github.com/Azure/azure-sdk-for-go/pull/26051) — Surfaced silently dropped `realClose()` transport errors using `errors.Join` to improve retry-path diagnosability · Under review
+- [PR #26106](https://github.com/Azure/azure-sdk-for-go/pull/26106) — Implemented W3C Trace Context (`traceparent` / `tracestate`) propagation using OpenTelemetry propagators; added header-injection unit tests · Under review
 
 ---
 
-## Technical Expertise
+## Stack
 
-Languages: Python, C++, Java, SQL  
-Machine Learning: PyTorch, TensorFlow, HuggingFace, OpenAI API, LangChain  
-Backend: FastAPI, Flask, Docker, Kubernetes  
-Data and Observability: MongoDB, PostgreSQL, Prometheus, Grafana, Chart.js  
-Tooling: GitHub Actions, Linux, Bash, REST APIs
+```
+Languages     Python · Go · C++17 · Swift · TypeScript · Java · SQL
+Systems       State machines · Idempotency · Deterministic replay · Fencing tokens · Retries/backoff
+Reliability   Failure mode analysis · Chaos testing · Regression gating · Release readiness
+Observability Prometheus · Grafana · Structured logging · Metrics design
+Backend       FastAPI · REST · Pydantic · Node.js/Express
+ML            PyTorch · HuggingFace Transformers · DistilBERT · Evaluation pipelines
+Runtime       PostgreSQL · SQLite · Docker · Kubernetes · GitHub Actions
+```
 
 ---
 
-## Research Focus
+## Writing
 
-- Human-aligned evaluation of generative AI  
-- Multimodal reasoning and robustness  
-- Jailbreak defense and intent preservation  
-- Benchmarking methodologies and interpretability  
-- Deployment and DevOps integration for ML systems
+- [Detecting Silent Regressions in GenAI Systems at Scale](https://medium.com/@kriti0608/detecting-silent-regressions-in-genai-systems-at-scale-039ec03db1e4) — stable metrics, reproducibility, CI gating
+- [The Day My Distributed System Failed — and Why That Was the Point](https://medium.com/@kriti0608) — deterministic failure drills, invariants, recovery artifacts
+- [Why AI Refusals Feel Like Punishment](https://medium.com/@kriti0608) — safety like reliability: measurable behavior, intent repair
 
 ---
 
 ## Contact
 
-Portfolio: https://kritibehl.github.io  
-LinkedIn: https://www.linkedin.com/in/kriti-behl/
-Email: kriti0608@gmail.com
+[kriti0608@gmail.com](mailto:kriti0608@gmail.com) · [LinkedIn](https://www.linkedin.com/in/kriti-behl/) · [Portfolio](https://kriti-portfolio-six.vercel.app) · [Hugging Face](https://huggingface.co/kriti0608) · [Medium](https://medium.com/@kriti0608)
 
-Actively interviewing for roles in AI Safety, Machine Learning Engineering, and Multimodal Systems Engineering.
+---
+
+**Pin these repos:** Faultline · AutoOps-Insight · ResuMate · FairEval-Suite · Chrome-Copilot · DetTrace
