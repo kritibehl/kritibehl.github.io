@@ -61,5 +61,3 @@ Runtime       PostgreSQL · SQLite · Docker · Kubernetes · GitHub Actions
 [kriti0608@gmail.com](mailto:kriti0608@gmail.com) · [LinkedIn](https://www.linkedin.com/in/kriti-behl/) · [Portfolio](https://kriti-portfolio-six.vercel.app) · [Hugging Face](https://huggingface.co/kriti0608) · [Medium](https://medium.com/@kriti0608)
 
 ---
-
-**Pin these repos:** Faultline · AutoOps-Insight · ResuMate · FairEval-Suite · Chrome-Copilot · DetTrace
